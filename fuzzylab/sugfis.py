@@ -18,4 +18,3 @@ class sugfis(FuzzyInferenceSystem):
         self.ImplicationMethod          = ImplicationMethod
         self.AggregationMethod          = AggregationMethod
         self.DefuzzificationMethod      = DefuzzificationMethod
-    

@@ -6,15 +6,12 @@ class fismf:
 
         nargin = len(varargin)
 
-        if nargin == 0:
+        if nargin is 0:
             self.Type = 'trimf'
             self.Parameters = [0, 0.5, 1]
         else:
             self.Type = varargin[0]
-            if type(varargin[1]) is int or type(varargin[1]) is float:
-                self.Parameters = [varargin[1]]
-            else:
-                self.Parameters = varargin[1]
+            self.Parameters = varargin[1]
 
         self.Name = options.get('Name')
         

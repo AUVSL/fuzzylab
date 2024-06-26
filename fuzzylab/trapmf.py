@@ -1,10 +1,11 @@
 # trapmf.py
 # Eduardo Avelar
-# August 2022
+# October 2018
 
 import numpy as np
 
 def trapmf(x, params):
+    # x shape = (number of pixels, 1)
     """
     Trapezoidal membership function generator.
 
@@ -22,7 +23,7 @@ def trapmf(x, params):
     """
     assert len(params) == 4, 'Trapezoidal membership function must have four parameters.'
     
-    a, b, c, d = params
+    a, b, c, d = np.asarray(params)
     assert a <= b, 'First parameter must be less than or equal to second parameter.'
     assert b <= c, 'Second parameter must be less than or equal to third parameter.'
     assert c <= d, 'Third parameter must be less than or equal to fourth parameter.'
@@ -30,20 +31,27 @@ def trapmf(x, params):
     if type(x) is not np.ndarray:
         x = np.asarray([x])
 
-    y = np.zeros(len(x))
+    #y = np.zeros(len(x))
+    y = np.zeros_like(x) #add 20240624
 
     # Left slope
     if a != b:
-        index = np.logical_and(a < x, x < b)
-        y[index] = (x[index] - a) / (b - a)
+        maskleft = (a < x) & (x < b) #add 20240624
+        #index = np.logical_and(a < x, x < b)
+        y[maskleft] = (x[maskleft]-a)/(b-a) #add 20240624
+        #y[index] = (x[index] - a) / (b - a)
         
     # Right slope
-    if c != d:    
-        index = np.logical_and(c < x, x < d)            
-        y[index] = (d - x[index]) / (d - c)
+    if c != d:
+        maskright = (c < x) & (x < d)    #add 20240624
+        #index = np.logical_and(c < x, x < d)            
+        y[maskright] = (d-x[maskright]) / (d - c)  #add 20240624
+        #y[index] = (d - x[index]) / (d - c)
 
     # Top
-    index = np.logical_and(b <= x, x <= c)           
-    y[index] = 1
+    #index = np.logical_and(b <= x, x <= c)           
+    #y[index] = 1
+    maskmid = (b <=x) & (x<=c)  #add 20240624
+    y[maskmid] = 1  #add 20240624
 
     return y
