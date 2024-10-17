@@ -11,9 +11,12 @@ This library is more mature compared to the first version and will receive perio
 
 ## Installation
 
-```
-pip install fuzzylab
-```
+- Setup a Python virtual envornement
+  - Step for setting up the environment...
+- First you need to `git clone https://github.com/AUVSL/fuzzylab.git`
+- Then you need to install the requirements: `pip install -r requirements.txt`
+- Then you need to compile the library: `pip install .`, which will allow you to install the library as `fuzzylab`
+- To verify the library installation you need to do `import fuzzylab; fuzzylab.__version__`
 
 ## Usage
 
