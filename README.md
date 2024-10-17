@@ -18,6 +18,8 @@ This library is more mature compared to the first version and will receive perio
 - Then you need to compile the library: `pip install .`, which will allow you to install the library as `fuzzylab`
 - To verify the library installation you need to do `import fuzzylab; fuzzylab.__version__`
 
+NOTE: DO NOT INSTALL `pip install fuzzylab` AS THIS WILL INSTALL THE PYPI VERSION OF THE REPOSITORY
+
 ## Usage
 
 In the folder [examples](https://github.com/ITTcs/fuzzylab/tree/master/examples) there are some code snippets and the equivalent matlab code for a starting point using the library.
